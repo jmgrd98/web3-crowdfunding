@@ -25,8 +25,8 @@ contract Crowdfunding {
         Campaign storage campaign = campaigns[numberOfCampaigns];
         require(campaign.deadline < block.timestamp, "The deadline should be a date in the future.");
 
-        campaing.owner = _owner;
-        campaing.title = _title;
+        campaign.owner = _owner;
+        campaign.title = _title;
         campaign.description = _description;
         campaign.target = _target;
         campaign.deadline = _deadline;
@@ -61,7 +61,7 @@ contract Crowdfunding {
         Campaign[] memory allCampaigns = new Campaign[](numberOfCampaigns);
 
         for (uint i = 0; i < numberOfCampaigns; i++) {
-            Campaign.storage item = campaigns[i];
+            Campaign storage item = campaigns[i];
             allCampaigns[i] = item;
         }
 
