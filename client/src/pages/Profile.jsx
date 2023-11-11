@@ -7,22 +7,22 @@ const Profile = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
 
-  const {address, contract, getCampaigns } = useStateContext();
+  const {address, contract, getUserCampaigns } = useStateContext();
 
   const fetchCampaigns = async () => {
-    const data = await getCampaigns();
+    const data = await getUserCampaigns();
     setCampaigns(data);
     setIsLoading(false);
+    console.log(data);
   }
 
   useEffect(() => {
     if (contract) fetchCampaigns();
-    console.log(campaigns);
   }, [address, contract])
 
   return (
     <DisplayCampaigns 
-      title="All Campaigns"
+      title="My Campaigns"
       isLoading={isLoading}
       campaigns={campaigns}
     />
