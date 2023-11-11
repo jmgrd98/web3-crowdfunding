@@ -4,7 +4,7 @@ import {ethers} from 'ethers';
 
 const StateContext = createContext();
 
-export const StateConstProvider = ({children}) => {
+export const StateContextProvider = ({children}) => {
     const {contract} = useContract('0x4CA32EADB51f5C50154a55aCeDaB08A819fAfa61');
 
     const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
@@ -30,4 +30,18 @@ export const StateConstProvider = ({children}) => {
 
 
     }
+
+    return (
+        <StateContext.Provider
+            value={{
+                address,
+                contract,
+                createCampaign: publishCampaign,
+            }}
+        >
+            {children}
+        </StateContext.Provider>
+    )
 }
+
+export const useStateContext = () => useContext(StateContext);
