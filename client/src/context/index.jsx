@@ -5,7 +5,7 @@ import {ethers} from 'ethers';
 const StateContext = createContext();
 
 export const StateContextProvider = ({children}) => {
-    const {contract} = useContract('0x4CA32EADB51f5C50154a55aCeDaB08A819fAfa61');
+    const {contract} = useContract('0x27Ace49abcCf046E55eC268fB041E3a5b7284762');
 
     const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
 
@@ -13,22 +13,38 @@ export const StateContextProvider = ({children}) => {
     const connect = useMetamask();
 
     const publishCampaign = async (form) => {
-
         try {
-            const data = await createCampaign([
-                address,
-                form.title,
-                form.description,
-                form.target,
-                new Date(form.deadline).getTime(),
-                form.image
-            ]);
+            const data = await createCampaign({
+                args: [
+                    address,
+                    form.title,
+                    form.description,
+                    form.target,
+                    new Date(form.deadline).getTime(),
+                    form.image
+                ]
+            });
             console.log("contract call success", data);
         } catch (error) {
             console.error(error);
         }
+    };
 
+    const getCampaigns = async () => {
+        const campaigns = await contract.call('getCampaigns');
+        
+        const parsedCampaigns = campaigns.map((campaign) => ({
+            owner: campaign.owner,
+            title: campaign.title,
+            description: campaign.description,
+            target: ethers.utils.formatEther(campaign.target.toString()),
+            deadline: campaign.deadline.toNumber(),
+            amountCollected: ethers.utils.formatEther(campaign.amountCollected.toString()),
+            image: campaign.image,
+            pId: i
+        }));
 
+        return parsedCampaigns;
     }
 
     return (
@@ -36,7 +52,9 @@ export const StateContextProvider = ({children}) => {
             value={{
                 address,
                 contract,
+                connect,
                 createCampaign: publishCampaign,
+                getCampaigns
             }}
         >
             {children}
