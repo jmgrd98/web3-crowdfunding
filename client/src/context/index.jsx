@@ -33,7 +33,7 @@ export const StateContextProvider = ({children}) => {
     const getCampaigns = async () => {
         const campaigns = await contract.call('getCampaigns');
         
-        const parsedCampaigns = campaigns.map((campaign) => ({
+        const parsedCampaigns = campaigns.map((campaign, i) => ({
             owner: campaign.owner,
             title: campaign.title,
             description: campaign.description,
