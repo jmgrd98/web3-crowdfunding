@@ -4,6 +4,8 @@ import {ethers} from 'ethers';
 import {useStateContext} from '../context';
 import {CustomButton, CountBox} from '../components';
 import {calculateBarPercentage, daysLeft} from '../utils';
+import {toast, ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import {thirdweb} from '../assets';
 
 const CampaignDetails = () => {
@@ -27,10 +29,17 @@ const CampaignDetails = () => {
 
   const handleDonate = async () => {
     setIsLoading(true);
+    if (!amount) {
+      toast.warn("Enter amount!")
+      return;
+    }
 
-    await donate(state.pId, amount);
-
-
+    try {
+      await donate(state.pId, amount);   
+    } catch (error) {
+      toast.error('Insufficient gas for this amount!');
+      console.error(error);
+    }
     setIsLoading(false);
   }
 
@@ -154,6 +163,18 @@ const CampaignDetails = () => {
 
 </div>
         </div>
+
+        <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={true}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={true}
+                pauseOnHover={false}
+            />
     </div>
   )
 }
