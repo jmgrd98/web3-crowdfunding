@@ -32,7 +32,7 @@ export const StateContextProvider = ({children}) => {
 
     const getCampaigns = async () => {
         const campaigns = await contract.call('getCampaigns');
-        
+
         const parsedCampaigns = campaigns.map((campaign, i) => ({
             owner: campaign.owner,
             title: campaign.title,
@@ -53,13 +53,10 @@ export const StateContextProvider = ({children}) => {
             return campaign.owner === address;
         })
         return filteredCampaigns;
-        }
+    }
 
     const donate = async (pId, amount) => {
-        console.log('donate function called with pId:', pId, 'and amount:', amount);
-
-    const data = await contract.call('donateToCampaign', [pId], { value: ethers.utils.parseEther(amount) });
-    console.log('contract.call result:', data);
+        const data = await contract.call('donateToCampaign', [pId], {value: ethers.utils.parseEther(amount)});
         return data;
     }
 
