@@ -11,7 +11,7 @@ import {thirdweb} from '../assets';
 const CampaignDetails = () => {
 
   const {state} = useLocation();
-  const {getDonations, donate, contract, address} = useStateContext();
+  const {getDonations, donate, contract, address, deleteCampaign} = useStateContext();
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
   const [donators, setDonators] = useState([]);
@@ -44,7 +44,12 @@ const CampaignDetails = () => {
   }
 
   const handleDelete = async () => {
-      console.log('DELETE')
+      try {
+          await deleteCampaign(state.pId);
+          console.log('Campaign deleted successfully');
+      } catch (error) {
+          console.error('Error deleting campaign:', error);
+      }
   }
 
   return (

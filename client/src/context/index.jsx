@@ -55,6 +55,28 @@ export const StateContextProvider = ({children}) => {
         return filteredCampaigns;
     }
 
+    const deleteCampaign = async () => {
+        try {
+            const currentCampaigns = await getCampaigns();
+
+            const indexToDelete = currentCampaigns.findIndex(campaign => campaign.pId === pId);
+
+            if (indexToDelete !== -1) {
+                const updatedCampaigns = [...currentCampaigns.slice(0, indexToDelete), ...currentCampaigns.slice(indexToDelete + 1)];
+
+                // Optionally, you can update the state with the new array of campaigns
+                // This depends on how your state management is set up
+                // setCampaigns(updatedCampaigns);
+
+                console.log('Campaign deleted successfully on the frontend');
+            } else {
+                console.warn('Campaign not found for deletion');
+            }
+        } catch (error) {
+            console.error('Error deleting campaign on the frontend:', error);
+        }
+    }
+
     const donate = async (pId, amount) => {
         const data = await contract.call('donateToCampaign', [pId], {value: ethers.utils.parseEther(amount)});
         return data;
@@ -85,7 +107,8 @@ export const StateContextProvider = ({children}) => {
                 getCampaigns,
                 getUserCampaigns,
                 donate,
-                getDonations
+                getDonations,
+                deleteCampaign
             }}
         >
             {children}
