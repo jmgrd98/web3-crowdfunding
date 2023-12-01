@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {loader} from '../assets';
 import FundCard from './FundCard';
+import { useStateContext } from '../context';
 
 const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
     const navigate = useNavigate();
+
   
     const handleNavigate = (campaign) => {
       navigate(`/campaign-details/${campaign.title}`, { state: campaign });
     };
+
+    useEffect(() => {
+        console.log(campaigns)
+    });
   
     return (
       <div>

@@ -11,7 +11,7 @@ const Profile = () => {
 
   const fetchCampaigns = async () => {
     const data = await getUserCampaigns();
-    setCampaigns(data);
+    setCampaigns(campaigns);
     setIsLoading(false);
     console.log(data);
   }

@@ -1,4 +1,4 @@
-import React, {useContext, createContext} from 'react';
+import React, {useContext, createContext, useState} from 'react';
 import {useAddress, useContract, useMetamask, useContractWrite} from '@thirdweb-dev/react';
 import {ethers} from 'ethers';
 
@@ -8,6 +8,8 @@ export const StateContextProvider = ({children}) => {
     const {contract} = useContract('0x27Ace49abcCf046E55eC268fB041E3a5b7284762');
 
     const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
+
+    const [campaigns, setCampaigns] = useState([]);
 
     const address = useAddress();
     const connect = useMetamask();
@@ -55,26 +57,8 @@ export const StateContextProvider = ({children}) => {
         return filteredCampaigns;
     }
 
-    const deleteCampaign = async () => {
-        try {
-            const currentCampaigns = await getCampaigns();
-
-            const indexToDelete = currentCampaigns.findIndex(campaign => campaign.pId === pId);
-
-            if (indexToDelete !== -1) {
-                const updatedCampaigns = [...currentCampaigns.slice(0, indexToDelete), ...currentCampaigns.slice(indexToDelete + 1)];
-
-                // Optionally, you can update the state with the new array of campaigns
-                // This depends on how your state management is set up
-                // setCampaigns(updatedCampaigns);
-
-                console.log('Campaign deleted successfully on the frontend');
-            } else {
-                console.warn('Campaign not found for deletion');
-            }
-        } catch (error) {
-            console.error('Error deleting campaign on the frontend:', error);
-        }
+    const setCampaignsState = (newCampaigns) => {
+        setCampaigns(newCampaigns);
     }
 
     const donate = async (pId, amount) => {
@@ -108,7 +92,8 @@ export const StateContextProvider = ({children}) => {
                 getUserCampaigns,
                 donate,
                 getDonations,
-                deleteCampaign
+                setCampaigns: setCampaignsState,
+                stateCampaigns: campaigns
             }}
         >
             {children}
