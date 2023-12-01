@@ -43,6 +43,10 @@ const CampaignDetails = () => {
     setIsLoading(false);
   }
 
+  const handleDelete = async () => {
+      console.log('DELETE')
+  }
+
   return (
     <div>
       {isLoading && 'Loading...'}
@@ -119,10 +123,18 @@ const CampaignDetails = () => {
   )) : (
     <p className='font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify'>No donators yet. Be the first one!</p>
 )}
+          </div>
+          </div>
+          </div>
 
-          </div>
-          </div>
-          </div>
+        {address === state.owner ? (
+            <CustomButton
+                btnType={'button'}
+                title={'Delete campaign'}
+                styles={'w-1/2 h-[20px] bg-red-500'}
+                handleClick={handleDelete}
+            />
+        ) : null}
 
           </div>
 
