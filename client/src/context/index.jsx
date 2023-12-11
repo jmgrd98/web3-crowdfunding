@@ -9,7 +9,7 @@ export const StateContextProvider = ({children}) => {
 
     const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
 
-    const [campaigns, setCampaigns] = useState([]);
+    const [stateCampaigns, setStateCampaigns] = useState([]);
 
     const address = useAddress();
     const connect = useMetamask();
@@ -33,6 +33,9 @@ export const StateContextProvider = ({children}) => {
     };
 
     const getCampaigns = async () => {
+        if (stateCampaigns) {
+            return;
+        }
         const campaigns = await contract.call('getCampaigns');
 
         const parsedCampaigns = campaigns.map((campaign, i) => ({
@@ -58,7 +61,7 @@ export const StateContextProvider = ({children}) => {
     }
 
     const setCampaignsState = (newCampaigns) => {
-        setCampaigns(newCampaigns);
+        setStateCampaigns(newCampaigns);
     }
 
     const donate = async (pId, amount) => {
@@ -93,7 +96,7 @@ export const StateContextProvider = ({children}) => {
                 donate,
                 getDonations,
                 setCampaigns: setCampaignsState,
-                stateCampaigns: campaigns
+                stateCampaigns
             }}
         >
             {children}
