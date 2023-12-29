@@ -30,6 +30,10 @@ const CampaignDetails = () => {
         if (contract) fetchDonators();
     }, [contract, address])
 
+    useEffect(() => {
+        console.log(state);
+    }, [])
+
     const handleDonate = async () => {
         setIsLoading(true);
         if (!amount) {

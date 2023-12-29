@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ff44367-d8df-435c-926f-db9ff9f6a41e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/DisplayCampaigns.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DisplayCampaigns.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/context/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/context/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/CampaignDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CampaignDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web3/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/web3/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,20 +27,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Zello/Documents/Github&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Zello/Documents/Github/web3-crowdfunding",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Zello\Documents\Github\web3-crowdfunding\client" />
@@ -150,6 +154,9 @@
       <workItem from="1701479751835" duration="968000" />
       <workItem from="1702076600508" duration="7606000" />
       <workItem from="1702134635243" duration="7780000" />
+      <workItem from="1703771719501" duration="3747000" />
+      <workItem from="1703780670980" duration="1389000" />
+      <workItem from="1703860236003" duration="8967000" />
     </task>
     <task id="LOCAL-00001" summary="delete campaign functionality">
       <option name="closed" value="true" />
