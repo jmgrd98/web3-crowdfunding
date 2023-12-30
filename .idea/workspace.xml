@@ -8,8 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/DisplayCampaigns.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/DisplayCampaigns.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/context/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/context/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/pages/CampaignDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/CampaignDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web3/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/web3/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +155,7 @@
       <workItem from="1702134635243" duration="7780000" />
       <workItem from="1703771719501" duration="3747000" />
       <workItem from="1703780670980" duration="1389000" />
-      <workItem from="1703860236003" duration="8967000" />
+      <workItem from="1703860236003" duration="10346000" />
     </task>
     <task id="LOCAL-00001" summary="delete campaign functionality">
       <option name="closed" value="true" />

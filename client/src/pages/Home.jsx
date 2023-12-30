@@ -11,9 +11,11 @@ const Home = () => {
 
     const fetchCampaigns = async () => {
         if (stateCampaigns.length > 0) {
+            console.log(stateCampaigns)
             setCampaigns(stateCampaigns);
         } else {
             const data = await getCampaigns();
+            console.log(data)
             setCampaigns(data);
         }
         setIsLoading(false);
